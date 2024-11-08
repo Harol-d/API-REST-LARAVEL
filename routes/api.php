@@ -13,6 +13,6 @@ Route::post('/producto', [ProductoController::class,'store']);
 //peticion Get solo un producto 
 Route::get('/producto/{id}', [ProductoController::class,'show']);
 //perticion patch
-Route::patch('/producto/{id}', [ProductoController::class,'show']);
+Route::put('/producto/{id}', [ProductoController::class,'update']);
 //peticion Delete
 Route::delete('/producto/{id}', [ProductoController::class,'destroy']);

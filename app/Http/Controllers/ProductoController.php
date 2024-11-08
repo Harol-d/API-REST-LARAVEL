@@ -58,7 +58,42 @@ class ProductoController extends Controller
             return response()->json($data,201);
         }
     }
+    public function update(Request $request, Producto $id)
+{
+    // Validación de los datos de entrada
+    $validator = validator::make($request->all(), [
+        'nombre' => 'required',
+        'descripcion' => 'required',
+        'precio' => 'required|numeric'
+    ]);
 
+    if ($validator->fails()) {
+        return response()->json([
+            'message' => 'Error en la validación de los datos',
+            'errors' => $validator->errors(),
+            'status' => 400
+        ], 400);
+    }
+
+    // Intento de actualización del producto
+    $id->nombre = $request->nombre;
+    $id->descripcion = $request->descripcion;
+    $id->precio = $request->precio;
+
+    if (!$id->save()) {
+        return response()->json([
+            'message' => 'Error: no se ha podido actualizar el id',
+            'status' => 500
+        ], 500);
+    }
+
+    // Respuesta de éxito
+    return response()->json([
+        'message' => 'Producto actualizado exitosamente',
+        'id' => $id,
+        'status' => 200
+    ], 200);
+}
     /**
      * Display the specified resource.
      */
