@@ -32,11 +32,11 @@ class ProductoController extends Controller
         ]);
         if($validator->fails()){
             $data = [
-            'message' => 'error en la validacion de los datos',
-            'errors' => $validator->errors(),
-            'status' => 400
+                'message' => 'error en la validacion de los datos',
+                'errors' => $validator->errors(),
+                'status' => 400
             ];
-            return response()->json($data,400);
+            return response()->json($data, 400);
         }
         $producto = Producto::create([
             'nombre' => $request->nombre,
