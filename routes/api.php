@@ -2,17 +2,32 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InventarioController;
-use App\Http\Controllers\ProductoController;
-//Peticion Get
-Route::get('/inventario', [InventarioController::class,'index']);
-//peticion Get Productos 
-Route::get('/producto', [ProductoController::class,'index']);
-//peticion Post producto
-Route::post('/producto', [ProductoController::class,'store']);
-//peticion Get solo un producto 
-Route::get('/producto/{id}', [ProductoController::class,'show']);
-//perticion patch
-Route::put('/producto/{id}', [ProductoController::class,'update']);
-//peticion Delete
-Route::delete('/producto/{id}', [ProductoController::class,'destroy']);
+use App\Http\Controllers\citasController;
+
+Route::get('/cita', [citasController::class, 'index']);
+Route::get('/cita/{id}', [citasController::class, 'index']);
+Route::post('/cita', [citasController::class, 'store']);
+Route::put('/cita/{id}', [citasController::class, 'update']);
+Route::delete('/cita/{id}', [citasController::class, 'destroy']);
+
+/*
+Route::get('/cliente', function () {
+    return'cliente lista';
+});
+
+Route::get('/cliente/{id}', function () {
+    return 'un cliente   ';
+});
+
+Route::post('/cliente', function () {
+    return 'creando uncliente';
+});
+
+Route::put('/cliente/{id}', function () {
+    return 'actualizando uncliente ';
+});
+ 
+Route::delete('/cliente/{id}', function () {
+    return 'eliminando cliente ';
+});
+*/	
