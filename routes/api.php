@@ -7,6 +7,7 @@ use App\Http\Controllers\citasController;
 Route::get('/cita', [citasController::class, 'index']);
 Route::get('/cita/{id}', [citasController::class, 'index']);
 Route::post('/cita', [citasController::class, 'store']);
+// Route::patch()
 Route::put('/cita/{id}', [citasController::class, 'update']);
 Route::delete('/cita/{id}', [citasController::class, 'destroy']);
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('tipo_documento');
             $table->integer('numero_documento')->unique();
             $table->string('tipo_servicio');
-            $table->date('dia');
+            $table->date('fecha');
             $table->time('hora');
             $table->timestamps();
         });
